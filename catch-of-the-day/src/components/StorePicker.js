@@ -5,7 +5,10 @@ class StorePicker extends React.Component {
     goToStore (event) {
         event.preventDefault();
         console.log("Hey Hey Hey!");
-        console.log(this.storeInput.value);
+        const href = this.storeInput.value;
+
+        console.log(`Going to ${href}`);
+        this.context.router.transitionTo(`/store/${href}`);
     }
 
     render () {
@@ -17,6 +20,10 @@ class StorePicker extends React.Component {
             </form>
         )
     }
+}
+
+StorePicker.contextTypes = {
+    router: React.PropTypes.object
 }
 
 export default StorePicker;
